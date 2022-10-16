@@ -1,0 +1,4 @@
+#不要上传vscode之类的配置文件
+.vscode/
+.vs/
+build/

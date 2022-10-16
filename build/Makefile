@@ -117,6 +117,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named data
+
+# Build rule for target.
+data: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data
+.PHONY : data
+
+# fast build rule for target.
+data/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/data.dir/build.make src/CMakeFiles/data.dir/build
+.PHONY : data/fast
+
+#=============================================================================
+# Target rules for targets named data_handler
+
+# Build rule for target.
+data_handler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 data_handler
+.PHONY : data_handler
+
+# fast build rule for target.
+data_handler/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/build
+.PHONY : data_handler/fast
+
+#=============================================================================
 # Target rules for targets named hello
 
 # Build rule for target.
@@ -137,6 +163,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... data"
+	@echo "... data_handler"
 	@echo "... hello"
 .PHONY : help
 

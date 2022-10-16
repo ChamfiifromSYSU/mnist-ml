@@ -65,16 +65,6 @@ CMAKE_BINARY_DIR = D:/cpp/projects/mnist-ml/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	D:/CMake/bin/cmake-gui.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -84,6 +74,16 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	D:/CMake/bin/cmake-gui.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -117,6 +117,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/CMakeFiles/data.dir/rule:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/data.dir/rule
+.PHONY : src/CMakeFiles/data.dir/rule
+
+# Convenience name for target.
+data: src/CMakeFiles/data.dir/rule
+.PHONY : data
+
+# fast build rule for target.
+data/fast:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data.dir/build.make src/CMakeFiles/data.dir/build
+.PHONY : data/fast
+
+# Convenience name for target.
+src/CMakeFiles/data_handler.dir/rule:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/data_handler.dir/rule
+.PHONY : src/CMakeFiles/data_handler.dir/rule
+
+# Convenience name for target.
+data_handler: src/CMakeFiles/data_handler.dir/rule
+.PHONY : data_handler
+
+# fast build rule for target.
+data_handler/fast:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/build
+.PHONY : data_handler/fast
+
+# Convenience name for target.
 src/CMakeFiles/hello.dir/rule:
 	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hello.dir/rule
 .PHONY : src/CMakeFiles/hello.dir/rule
@@ -129,6 +157,54 @@ hello: src/CMakeFiles/hello.dir/rule
 hello/fast:
 	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/build
 .PHONY : hello/fast
+
+data.obj: data.cpp.obj
+.PHONY : data.obj
+
+# target to build an object file
+data.cpp.obj:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data.dir/build.make src/CMakeFiles/data.dir/data.cpp.obj
+.PHONY : data.cpp.obj
+
+data.i: data.cpp.i
+.PHONY : data.i
+
+# target to preprocess a source file
+data.cpp.i:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data.dir/build.make src/CMakeFiles/data.dir/data.cpp.i
+.PHONY : data.cpp.i
+
+data.s: data.cpp.s
+.PHONY : data.s
+
+# target to generate assembly for a file
+data.cpp.s:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data.dir/build.make src/CMakeFiles/data.dir/data.cpp.s
+.PHONY : data.cpp.s
+
+data_handler.obj: data_handler.cpp.obj
+.PHONY : data_handler.obj
+
+# target to build an object file
+data_handler.cpp.obj:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/data_handler.cpp.obj
+.PHONY : data_handler.cpp.obj
+
+data_handler.i: data_handler.cpp.i
+.PHONY : data_handler.i
+
+# target to preprocess a source file
+data_handler.cpp.i:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/data_handler.cpp.i
+.PHONY : data_handler.cpp.i
+
+data_handler.s: data_handler.cpp.s
+.PHONY : data_handler.s
+
+# target to generate assembly for a file
+data_handler.cpp.s:
+	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/data_handler.cpp.s
+.PHONY : data_handler.cpp.s
 
 hello.obj: hello.cpp.obj
 .PHONY : hello.obj
@@ -162,7 +238,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... data"
+	@echo "... data_handler"
 	@echo "... hello"
+	@echo "... data.obj"
+	@echo "... data.i"
+	@echo "... data.s"
+	@echo "... data_handler.obj"
+	@echo "... data_handler.i"
+	@echo "... data_handler.s"
 	@echo "... hello.obj"
 	@echo "... hello.i"
 	@echo "... hello.s"
