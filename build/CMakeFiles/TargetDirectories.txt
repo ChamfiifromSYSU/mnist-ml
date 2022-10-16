@@ -1,0 +1,9 @@
+D:/cpp/projects/mnist-ml/build/CMakeFiles/edit_cache.dir
+D:/cpp/projects/mnist-ml/build/CMakeFiles/rebuild_cache.dir
+D:/cpp/projects/mnist-ml/build/src/CMakeFiles/hello.dir
+D:/cpp/projects/mnist-ml/build/src/CMakeFiles/edit_cache.dir
+D:/cpp/projects/mnist-ml/build/src/CMakeFiles/rebuild_cache.dir
+D:/cpp/projects/mnist-ml/build/test/CMakeFiles/edit_cache.dir
+D:/cpp/projects/mnist-ml/build/test/CMakeFiles/rebuild_cache.dir
+D:/cpp/projects/mnist-ml/build/example/CMakeFiles/edit_cache.dir
+D:/cpp/projects/mnist-ml/build/example/CMakeFiles/rebuild_cache.dir

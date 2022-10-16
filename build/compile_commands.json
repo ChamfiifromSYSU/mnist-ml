@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/cpp/projects/mnist-ml/build/src",
+  "command": "D:/MinGw/bin/g++.exe  @CMakeFiles/hello.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/hello.dir/hello.cpp.obj -c D:/cpp/projects/mnist-ml/src/hello.cpp",
+  "file": "D:/cpp/projects/mnist-ml/src/hello.cpp"
+}
+]
