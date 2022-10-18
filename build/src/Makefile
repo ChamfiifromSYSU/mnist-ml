@@ -144,20 +144,6 @@ data_handler/fast:
 	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/build
 .PHONY : data_handler/fast
 
-# Convenience name for target.
-src/CMakeFiles/hello.dir/rule:
-	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/hello.dir/rule
-.PHONY : src/CMakeFiles/hello.dir/rule
-
-# Convenience name for target.
-hello: src/CMakeFiles/hello.dir/rule
-.PHONY : hello
-
-# fast build rule for target.
-hello/fast:
-	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/build
-.PHONY : hello/fast
-
 data.obj: data.cpp.obj
 .PHONY : data.obj
 
@@ -206,30 +192,6 @@ data_handler.cpp.s:
 	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/data_handler.cpp.s
 .PHONY : data_handler.cpp.s
 
-hello.obj: hello.cpp.obj
-.PHONY : hello.obj
-
-# target to build an object file
-hello.cpp.obj:
-	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/hello.cpp.obj
-.PHONY : hello.cpp.obj
-
-hello.i: hello.cpp.i
-.PHONY : hello.i
-
-# target to preprocess a source file
-hello.cpp.i:
-	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/hello.cpp.i
-.PHONY : hello.cpp.i
-
-hello.s: hello.cpp.s
-.PHONY : hello.s
-
-# target to generate assembly for a file
-hello.cpp.s:
-	cd D:/cpp/projects/mnist-ml/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/hello.cpp.s
-.PHONY : hello.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -240,16 +202,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... data"
 	@echo "... data_handler"
-	@echo "... hello"
 	@echo "... data.obj"
 	@echo "... data.i"
 	@echo "... data.s"
 	@echo "... data_handler.obj"
 	@echo "... data_handler.i"
 	@echo "... data_handler.s"
-	@echo "... hello.obj"
-	@echo "... hello.i"
-	@echo "... hello.s"
 .PHONY : help
 
 

@@ -56,5 +56,4 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/data.dir/DependInfo.cmake"
   "src/CMakeFiles/data_handler.dir/DependInfo.cmake"
-  "src/CMakeFiles/hello.dir/DependInfo.cmake"
   )

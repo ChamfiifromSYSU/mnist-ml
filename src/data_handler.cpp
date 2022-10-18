@@ -1,4 +1,5 @@
 #include "data_handler.hpp"
+#include "data.hpp"
 
 data_handler::data_handler() {
     data_array = new std::vector<data *>;
@@ -62,13 +63,13 @@ void data_handler::read_feature_labels(std::string path) {
         for (int i = 0; i < header[1]; i++) {
             uint8_t element[1];
             if (fread(element, sizeof(element), 1, f)) {
-                data_array->at(i)->set_label(element[0])
+                data_array->at(i)->set_label(element[0]);
             } else {
                 printf("Error Reading from file.\n");
                 exit(1);
             }
         }
-        printf("Successfully read and stored label.\n");
+        printf("Successfully read and stored labels.\n");
     } else {
         printf("Could not find file.\n");
         exit(1);
@@ -136,15 +137,28 @@ void data_handler::count_classes() {
 }
 
 uint32_t data_handler::convert_to_little_endian(const unsigned char* bytes) {
-
+    return (uint32_t) ((bytes[0] << 24) | 
+                        (bytes[1] << 16) |
+                        (bytes[2] << 8) |
+                        (bytes[3]));
 }
 
 std::vector<data*> *data_handler::get_training_data() {
-
+    return training_data;
 } // return a pointer of vector
 std::vector<data*> *data_handler::get_test_data() {
-
+    return test_data;
 }
 std::vector<data*> *data_handler::get_validation_data() {
+    return test_data;
+}
+
+
+int main() {
+    data_handler *dh = new data_handler();
+    dh->read_feature_labels("./train-labels.idx3-ubyte");
+    dh->read_feature_vector("./train-images.idx3-ubyte");
+    dh->split_data();
+    dh->count_classes();
 
 }

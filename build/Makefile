@@ -142,19 +142,6 @@ data_handler/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/data_handler.dir/build.make src/CMakeFiles/data_handler.dir/build
 .PHONY : data_handler/fast
 
-#=============================================================================
-# Target rules for targets named hello
-
-# Build rule for target.
-hello: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hello
-.PHONY : hello
-
-# fast build rule for target.
-hello/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/hello.dir/build.make src/CMakeFiles/hello.dir/build
-.PHONY : hello/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,7 +152,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... data"
 	@echo "... data_handler"
-	@echo "... hello"
 .PHONY : help
 
 

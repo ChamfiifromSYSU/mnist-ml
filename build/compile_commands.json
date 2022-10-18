@@ -8,10 +8,5 @@
   "directory": "D:/cpp/projects/mnist-ml/build/src",
   "command": "D:/MinGw/bin/g++.exe  @CMakeFiles/data_handler.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/data_handler.dir/data_handler.cpp.obj -c D:/cpp/projects/mnist-ml/src/data_handler.cpp",
   "file": "D:/cpp/projects/mnist-ml/src/data_handler.cpp"
-},
-{
-  "directory": "D:/cpp/projects/mnist-ml/build/src",
-  "command": "D:/MinGw/bin/g++.exe  @CMakeFiles/hello.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles/hello.dir/hello.cpp.obj -c D:/cpp/projects/mnist-ml/src/hello.cpp",
-  "file": "D:/cpp/projects/mnist-ml/src/hello.cpp"
 }
 ]
