@@ -9,7 +9,7 @@
 #include <map>
 #include <unordered_set>
 
-//implement all of the logic needed to readin, split the data, count the number of unique classes and etc.
+// eclare all of the logic needed to readin, split the data, count the number of unique classes and etc.
 class data_handler
 {
     std::vector<data*> *data_array; // all of the data (pre-split)
@@ -19,13 +19,13 @@ class data_handler
 
     int num_classes;
     int feature_vector_size;
-    std::map<uint8_t, int> class_map;
+    std::map<uint8_t, int> class_map;  // key is label, 
 
     const double TRAIN_SET_PERCENT = 0.75;
     const double TEST_SET_PERCENT = 0.20;
     const double VALIDATION_PERCENT = 0.05;
 
-    public:
+  public:
     data_handler();
     ~data_handler();
 
@@ -36,7 +36,7 @@ class data_handler
 
     uint32_t convert_to_little_endian(const unsigned char* bytes);
 
-    std::vector<data*> *get_training_data();
+    std::vector<data*> *get_training_data(); // return a pointer of vector
     std::vector<data*> *get_test_data();
     std::vector<data*> *get_validation_data();
     
