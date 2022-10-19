@@ -49,7 +49,7 @@ void data_handler::read_feature_vector(std::string path) {
 
 void data_handler::read_feature_labels(std::string path) {
     uint32_t header[2];  // label 有2个32bit int header; |MAGIC|NUM IMAGES
-    unsigned char bytes[2]; // read all 32bits into this char
+    unsigned char bytes[4]; // read all 32bits into this char
     FILE *f = fopen(path.c_str(), "r"); // fopen is a C function
     if (f) {
         // read header
@@ -156,8 +156,9 @@ std::vector<data*> *data_handler::get_validation_data() {
 
 int main() {
     data_handler *dh = new data_handler();
-    dh->read_feature_labels("./train-labels.idx3-ubyte");
+    
     dh->read_feature_vector("./train-images.idx3-ubyte");
+    dh->read_feature_labels("./train-labels.idx1-ubyte"); // 要先读image再读label
     dh->split_data();
     dh->count_classes();
 
