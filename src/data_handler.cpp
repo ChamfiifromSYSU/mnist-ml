@@ -6,6 +6,8 @@ data_handler::data_handler() {
     test_data = new std::vector<data *>;
     training_data = new std::vector<data *>;
     validation_data = new std::vector<data *>;
+
+    //class_map.clear();
 }
 
 data_handler::~data_handler() {
@@ -39,6 +41,7 @@ void data_handler::read_feature_vector(std::string path) {
                 }
             }
             data_array->push_back(d);
+            // delete d;
         }
         printf("Successfully read and stored %lu feature vector.\n", data_array->size());
     } else {
@@ -125,11 +128,14 @@ void data_handler::split_data() {
 void data_handler::count_classes() {
     int count = 0;
     // 一开始class_map是空的
+    // class_map.clear();
     for (unsigned i = 0; i < data_array->size(); i++) {
         if (class_map.find(data_array->at(i)->get_label()) == class_map.end()) { // 如果class_map里没有这个label
             class_map[data_array->at(i)->get_label()] = count;
             data_array->at(i)->set_enumerated_label(count);
             count++;
+        } else {
+            data_array->at(i)->set_enumerated_label(class_map[data_array->at(i)->get_label()]);
         }
     }
     num_classes = count;

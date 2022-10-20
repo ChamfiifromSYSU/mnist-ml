@@ -14,4 +14,59 @@
 
 ## Part 2 : KNN
 
-- 测试密钥2222
+- 虽然作者在文中不会在乎内存，即new了也不delete或者啥的。但千万别手贱去delete，因为总会在不合适的地方delete掉。（以后有时间再全改成智能指针
+
+- 遇到了好多问题
+1. fPIC的使用，是在生成每个.o的时候要用-fPIC，然后在合成.o生成.so的时候不用-fPIC了，但是要加-shared。
+2. 要用.so的时候，-L是路径，-l是名字（l是小写L，名字是指去掉lib，比如libxxx.so，则要-lxxx）。然后，链接.so编译的时候不用加-shared也不用加-fPIC，搞清楚用途。
+3. C/C++编译时没问题，但运行却说该.so没有，是因为-L的路径只在编译时用。在运行时，要自己添加全局变量。如export LD_LIBRARY_PATH=/root/mnist-ml/lib。但是！又报了诸如“libstdc++.so.6: version `GLIBCXX_3.4.20' not found”这样的错误，解决方案参考这篇神文：https://www.cnblogs.com/emanlee/p/14873176.html。
+为防止页面失效，我摘抄一下
+-----------------
+这个错误是目前的libstdc++.so.6没有对应的GLBCXX造成的。可以通过如下命令查看：
+```
+[ss@~]$ strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX
+GLIBCXX_3.4
+GLIBCXX_3.4.1
+...
+GLIBCXX_3.4.13
+```
+
+可以看到，最高版本为3.4.13，没有对应的3.4.20。
+通过查看libstdc++.so.6可以看到它链接到了另外一个库
+```
+[ss@~]$ ll /usr/lib64/libstdc++.so.6
+  /usr/lib64/libstdc++.so.6 -> libstdc++.so.6.0.13
+```
+接下来看看系统还有没有更高版本的lib库
+```
+[ss@server1 service]# find / -name libstdc++.so.6*
+/usr/lib64/libstdc++.so.6.bak
+/usr/lib64/libstdc++.so.6.0.13
+/usr/lib64/libstdc++.so.6
+/usr/lib64/libstdc++.so.6.0.20
+/usr/local/lib64/libstdc++.so.6
+/usr/local/lib64/libstdc++.so.6.0.20
+```
+刚好还有一个6.0.20版本，查看它的信息
+```
+[root@spider-server1 service]# strings /usr/local/lib64/libstdc++.so.6.0.20 | grep GLIBCXX
+GLIBCXX_3.4
+GLIBCXX_3.4.1
+GLIBCXX_3.4.2
+...
+GLIBCXX_3.4.19
+GLIBCXX_3.4.20
+```
+看来这个版本满足我们的需求，重新做链接
+```
+$ cp /usr/local/lib64/libstdc++.so.6.0.20 /usr/lib64/libstdc++.so.6.0.20
+
+
+$ rm -f /usr/lib64/libstdc++.so.6
+
+
+$ ln -s /usr/lib64/libstdc++.so.6.0.20 /usr/lib64/libstdc++.so.6 
+```
+---------------------
+
+这样跑完之后基本上就没问题了，就是跑得有点慢，在辣鸡单核服务器上没办法
