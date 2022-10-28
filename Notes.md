@@ -61,12 +61,20 @@ GLIBCXX_3.4.20
 ```
 $ cp /usr/local/lib64/libstdc++.so.6.0.20 /usr/lib64/libstdc++.so.6.0.20
 
-
 $ rm -f /usr/lib64/libstdc++.so.6
-
 
 $ ln -s /usr/lib64/libstdc++.so.6.0.20 /usr/lib64/libstdc++.so.6 
 ```
 ---------------------
 
 这样跑完之后基本上就没问题了，就是跑得有点慢，在辣鸡单核服务器上没办法
+
+
+
+## Part 3: KMeans
+
+1、增加了通用common类，拿来读数据、设置数据（划分数据？）
+
+2、学会了写add_new_model.sh，一些shell script
+
+`./add_new_model.sh kmeans`即可添加新的模型以及对应的路径、hpp和cpp文件
